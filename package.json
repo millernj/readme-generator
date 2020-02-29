@@ -1,0 +1,31 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "a simple, cli for generating good readme files",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/millernj/readme-generator.git"
+  },
+  "keywords": [
+    "readme",
+    "markdown"
+  ],
+  "author": "Noah Miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/millernj/readme-generator/issues"
+  },
+  "homepage": "https://github.com/millernj/readme-generator#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^3.0.0",
+    "electron": "^8.0.2",
+    "electron-html-to": "^2.6.0",
+    "inquirer": "^7.0.5",
+    "open": "^7.0.2"
+  }
+}
