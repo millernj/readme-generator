@@ -1,7 +1,11 @@
+const fs = require('fs');
+const util = require('util');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const { renderMarkdown } = require('./src/markdown.js');
-const { getUser, getShield } = require('./src/api.js');
+const { getUser, getShield, checkProjectUrl } = require('./src/api.js');
+
+const writeFileAsync = util.promisify(fs.writeFile);
 
 const main = async () => {
   let githubUser;
@@ -21,7 +25,17 @@ const main = async () => {
     },
     {
       message: 'What is your project\'s name?',
-      name: 'project'
+      name: 'project',
+      validate: async (input) => {
+        try {
+
+          const projectUrl = await checkProjectUrl(githubUser.githubUrl, input);
+          githubUser.projectUrl = projectUrl;
+          return true;
+        } catch (error) {
+          return `${error}\n${chalk.red('>>')} Please enter valid project`;
+        }
+      }
     },
     {
       message: 'Please write a short description of your project:',
@@ -59,7 +73,9 @@ const main = async () => {
     }
   ])
   const shield = await getShield(userInput.license);
-  console.log({user: githubUser, shield, ...userInput});
+  const markdown = renderMarkdown({user: githubUser, shield, ...userInput});
+  await writeFileAsync('README.md', markdown);
+  console.log(chalk.green('Done!'))
 }
 
 main();
