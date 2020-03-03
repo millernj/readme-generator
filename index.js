@@ -1,9 +1,9 @@
-const fs = require('fs');
-const util = require('util');
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const { renderMarkdown } = require('./src/markdown.js');
-const { getUser, getShield, checkProjectUrl } = require('./src/api.js');
+import fs from 'fs';
+import util from 'util';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import renderMarkdown from './src/markdown.js';
+import { getUser, getShield, checkProjectUrl } from './src/api.js';
 
 const writeFileAsync = util.promisify(fs.writeFile);
 

@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "a simple, cli for generating good readme files",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "node index.js"
+    "start": "node --experimental-modules index.js",
+    "test": "node --experimental-modules index.js"
   },
   "repository": {
     "type": "git",

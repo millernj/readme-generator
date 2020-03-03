@@ -1,6 +1,22 @@
-module.exports = {
-  renderMarkdown: ({user: { name, email, githubUrl, avatarUrl, projectUrl }, shield, username, project, description, license, install, test, usage, contributing}) => {
-    return `
+export default function renderMardown({ 
+  user: { 
+    name,
+    email,
+    githubUrl,
+    avatarUrl,
+    projectUrl
+  },
+  shield,
+  username,
+  project,
+  description,
+  license,
+  install,
+  test,
+  usage,
+  contributing 
+}) {
+  return `
 # ${project}
 [![GitHub license](${shield})](${projectUrl})
 
@@ -54,7 +70,6 @@ ${test}
 
 <img src="${avatarUrl}" alt="avatar" style="border-radius: 16px" width="30"/>
 
-If you have any questions about the repo, open an issue or contact ${name} ([${username}](${githubUrl})) directly${email ? ` at ${email}.`: '.'}
-    `
-  }
+If you have any questions about the repo, open an issue or contact ${name} ([${username}](${githubUrl})) directly${email ? ` at ${email}.` : '.'}
+`
 }
