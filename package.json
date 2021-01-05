@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/millernj/readme-generator#readme",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chalk": "^3.0.0",
     "inquirer": "^7.0.5",
     "open": "^7.0.2"
